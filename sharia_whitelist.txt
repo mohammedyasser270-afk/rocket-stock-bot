@@ -1,0 +1,3 @@
+# Optional future use.
+# Put one verified Sharia-compliant ticker per line.
+# This version does NOT automatically apply this file yet.
