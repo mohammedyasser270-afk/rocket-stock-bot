@@ -8,5 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Hello
-        run: echo "Rocket Scanner Online!"
+      - name: Send Telegram message
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_USER_ID: ${{ secrets.TELEGRAM_USER_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+          -d chat_id="${TELEGRAM_USER_ID}" \
+          -d text="✅ Rocket Scanner is online"
